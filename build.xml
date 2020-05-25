@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name = "Spend Calculation Project" basedir="." default = "build">
+    <property name="src.dir" value="src"/>
+    <property name="build.src" value="out/production"/>
+    <target name="build" description="compile source java files">
+        <mkdir dir="${build.src}"/>
+
+        <javac destdir="${build.src}" source="1.8" target="1.8">
+            <src path="${src.dir}"/>
+        </javac>
+    </target>
+
+    <target name="clean" description="Clean output dir">
+        <delete dir="out">
+        </delete>
+    </target>
+
+    <target name="run">
+        <java fork="true" failonerror="true" classname="SpendCal" dir="${build.src}"/>
+    </target>
+
+</project>
